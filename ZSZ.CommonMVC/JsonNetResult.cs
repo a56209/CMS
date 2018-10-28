@@ -39,9 +39,10 @@ namespace ZSZ.CommonMVC
                 response.ContentEncoding = this.ContentEncoding;
             if (this.Data == null)
                 return;
-
+            var s = JsonConvert.SerializeObject(this.Data);
             var scriptSerializer = JsonSerializer.Create(this.Settings);
             scriptSerializer.Serialize(response.Output, this.Data);
+            
         }
     }
 }

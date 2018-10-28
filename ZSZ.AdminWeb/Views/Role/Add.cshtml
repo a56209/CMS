@@ -1,0 +1,62 @@
+﻿@model ZSZ.DTO.PermissionDTO[]
+@{
+    ViewBag.Title = "添加角色";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form form-horizontal" id="formAdd">
+    <div class="row cl">
+        <label class="form-label col-3"><span class="c-red">*</span>角色名称：</label>
+        <div class="formControls col-5">
+            <input type="text" class="input-text" value="" placeholder="" id="name" name="name" datatype="*2-16" nullmsg="用户名不能为空">
+        </div>
+        <div class="col-4"> </div>
+    </div>
+    <div class="row cl">
+        @foreach (var perm in Model)
+        {
+            <div class="col-xs-12 col-sm-3">
+                <input type="checkbox" id="PermissionIds_@perm.Id" name="PermissionIds" value="@perm.Id" />
+                <label for="PermissionIds_@perm.Id">@perm.Description</label>
+            </div>
+        }
+    </div>
+    <div class="row cl">
+        <div class="col-9 col-offset-3">
+            <input id="btnSave" class="btn btn-primary radius" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
+    </div>
+</form>
+
+@section FooterScript
+{
+    <script type="text/javascript">
+        var saveAjax = function () {            
+            var formData = $("#formAdd").serializeArray();
+            $.ajax({
+                url: "/Role/Add",
+                type: "post",                
+                data: formData,
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.status == "ok") {
+                        layer.msg('添加成功', { icon: 1, time: 2000 });
+                        parent.location.reload();//刷新父窗口
+                    }
+                    else {
+                        layer.msg(res.errorMsg, { icon: 1, time: 2000 });
+                    }
+                },
+                error: function () {
+                    alert("请求出错");
+                }
+            });
+        };
+
+        $(function () {
+            $("#btnSave").click(saveAjax);
+        });
+    </script>
+}
+

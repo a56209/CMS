@@ -19,9 +19,10 @@ namespace ZSZ.Service
             //不存在时重新创建数据库
             //Database.SetInitializer<ZSZDbContext>(new CreateDatabaseIfNotExists<ZSZDbContext>());
             //Database.SetInitializer<ZSZDbContext>(new DropCreateDatabaseAlways<ZSZDbContext>());
-            //从不创建数据库            
+            //从不创建数据库     
+            string s = Database.Connection.ConnectionString;
             Database.SetInitializer<ZSZDbContext>(null);
-
+            
             this.Database.Log = (sql) =>
             {
                 //log.Debug(sql);

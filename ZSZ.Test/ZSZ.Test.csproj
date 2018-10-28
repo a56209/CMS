@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ZSZ.DTO\ZSZ.DTO.csproj">
+      <Project>{f3ba1e33-9f26-4100-b39b-f219f84399ed}</Project>
+      <Name>ZSZ.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZSZ.Service\ZSZ.Service.csproj">
       <Project>{9b18bfe6-8824-402e-8218-683ce7900686}</Project>
       <Name>ZSZ.Service</Name>

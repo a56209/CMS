@@ -13,14 +13,14 @@ namespace ZSZ.FrontWeb.Controllers
         // GET: Main
         public ActionResult Index()
         {
-            //string Id = cityService.AddNewe("北京").ToString();
-            if (Session["test"] != null)
-            {
-                return Content((string)Session["test"]);
-            }
-            string s = "abc";
-            Session["test"] = s;
-            return Content("OK");
+            string Id = cityService.AddNewe("深圳").ToString();
+            //if (Session["test"] != null)
+            //{
+            //    return Content((string)Session["test"]);
+            //}
+            //string s = "abc";
+            //Session["test"] = s;
+            return Content("OK" + Id);
                       
         }
     }

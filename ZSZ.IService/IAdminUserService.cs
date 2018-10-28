@@ -29,7 +29,7 @@ namespace ZSZ.IService
         /// <param name="email"></param>
         /// <param name="cityId">城市Id(null表示总部)</param>
         /// <returns></returns>
-        long UpdateAdminUser(string name, string phoneNum, string password, string email, long? cityId);
+        void UpdateAdminUser(long id,string name, string phoneNum, string password, string email, long? cityId);
 
         /// <summary>
         /// 获取CityId这个城市下的管理员
