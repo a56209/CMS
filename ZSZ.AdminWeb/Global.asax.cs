@@ -17,8 +17,7 @@ namespace ZSZ.AdminWeb
     {
         protected void Application_Start()
         {
-            log4net.Config.XmlConfigurator.Configure();
-            GlobalFilters.Filters.Add(new ZSZExceptionFilter());
+            log4net.Config.XmlConfigurator.Configure();            
 
             ModelBinders.Binders.Add(typeof(string), new TrimToDBCModelBinder());
             ModelBinders.Binders.Add(typeof(int), new TrimToDBCModelBinder());
@@ -45,11 +44,16 @@ namespace ZSZ.AdminWeb
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));//!!!
 
 
-
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            /*
             GlobalFilters.Filters.Add(new JsonNetActionFilter());
+            GlobalFilters.Filters.Add(new ZSZExceptionFilter());
+            GlobalFilters.Filters.Add(new ZSZAuthorizeFilter());
+            */
+            FilterConfig.RegisterFilters(GlobalFilters.Filters);
+
         }
     }
 }

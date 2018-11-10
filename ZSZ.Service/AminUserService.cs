@@ -24,6 +24,7 @@ namespace ZSZ.Service
             user.PasswordSalt = salt;
             //MD5(盐+密码)
             string pwdHash = CommonHelper.CalcMD5(salt + password);
+            user.PasswordHash = pwdHash;
             using (ZSZDbContext ctx = new ZSZDbContext())
             {
                 BaseService<AdminUserEntity> bs = new BaseService<AdminUserEntity>(ctx);

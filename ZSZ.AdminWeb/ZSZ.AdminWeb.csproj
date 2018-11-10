@@ -49,6 +49,9 @@
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="CaptchaGen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaGen.1.0.0\lib\net40\CaptchaGen.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -1113,8 +1116,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CheckPermissionAttribute.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\ZSZAuthorizeFilter.cs" />
     <Compile Include="App_Start\ZSZExceptionFilter.cs" />
+    <Compile Include="Controllers\AdminUserController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -1129,6 +1136,11 @@
     <Compile Include="lib\ueditor\1.4.3\net\App_Code\NotSupportedHandler.cs" />
     <Compile Include="lib\ueditor\1.4.3\net\App_Code\PathFormater.cs" />
     <Compile Include="lib\ueditor\1.4.3\net\App_Code\UploadHandler.cs" />
+    <Compile Include="Models\AdminUserAddModel.cs" />
+    <Compile Include="Models\AdminUserAddViewModel.cs" />
+    <Compile Include="Models\AdminUserEditModel.cs" />
+    <Compile Include="Models\AdminUserEditViewModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PermissionAddNewModel.cs" />
     <Compile Include="Models\PermissionEditModel.cs" />
     <Compile Include="Models\RoleAddModel.cs" />
@@ -1173,6 +1185,10 @@
     <Content Include="Views\Role\List.cshtml" />
     <Content Include="Views\Role\Add.cshtml" />
     <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\AdminUser\Add.cshtml" />
+    <Content Include="Views\AdminUser\List.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\AdminUser\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1188,6 +1204,10 @@
     <ProjectReference Include="..\ZSZ.CommonMVC\ZSZ.CommonMVC.csproj">
       <Project>{1921464C-285B-4774-8971-DC8D60FB48FE}</Project>
       <Name>ZSZ.CommonMVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZSZ.COMMON\ZSZ.COMMON.csproj">
+      <Project>{9DEA8819-D817-468B-A748-36CE2326C368}</Project>
+      <Name>ZSZ.COMMON</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZSZ.DTO\ZSZ.DTO.csproj">
       <Project>{f3ba1e33-9f26-4100-b39b-f219f84399ed}</Project>
