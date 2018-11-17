@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZSZ.DTO
 {
-    public class HoseAddNewDTO:BaseDTO
+    public class HouseAddNewDTO:BaseDTO
     {
         public long CommunityId { get; set; }
         public long RoomTypeId { get; set; }

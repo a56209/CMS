@@ -45,7 +45,11 @@
     <Compile Include="IAdminUserService.cs" />
     <Compile Include="IAttachmentService.cs" />
     <Compile Include="ICityService.cs" />
+    <Compile Include="ICommunityService.cs" />
+    <Compile Include="IHouseService.cs" />
+    <Compile Include="IIdNameService.cs" />
     <Compile Include="IPermissionService.cs" />
+    <Compile Include="IRegionService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="IServiceSupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

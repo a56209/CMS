@@ -9,10 +9,10 @@ namespace ZSZ.DTO
     public class CommunityDTO:BaseDTO
     {
         public string Name { get; set; }
-        public string RegionId { get; set; }
+        public long RegionId { get; set; }
         public string Location { get; set; }
         public string Traffic { get; set; }
-        public int? builtYear { get; set; }
+        public int? BuiltYear { get; set; }
 
 
     }

@@ -18,7 +18,13 @@ namespace ZSZ.AdminWeb.Controllers
         // GET: Main
         public ActionResult Index()
         {
-            return View();
+            long? userId = AdminHelper.GetUserId(HttpContext);
+            if (userId == null)
+            {
+                return Redirect("~/Main/Login");
+            }
+            var user = userService.GetById((long)userId);
+            return View(user);
         }
 
         public ActionResult Login()

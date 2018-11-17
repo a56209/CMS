@@ -80,6 +80,12 @@
                             layer.msg('已删除!', { icon: 1, time: 2000 });
                             location.reload();
                         }
+                        else if (res.status == "redirect") {
+                            location.href = res.data;
+                        }
+                        else if (res.status == "error") {
+                            alert(res.errorMsg);
+                        }
                         else {
                             layer.msg('删除失败!', { icon: 2, time: 2000 });
                         }
